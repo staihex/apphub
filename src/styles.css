@@ -1,0 +1,19 @@
+
+.ant-input-outlined {
+  background: #ffffff;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #999 !important;
+}
+
+.ant-sender {
+  border-color: #999 !important;
+}
+
+.ant-select-selector {
+  border-color: #999!important;
+}
+
+.ant-input-number-outlined {
+  border-color: #999!important;
+}
