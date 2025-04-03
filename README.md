@@ -82,7 +82,7 @@ plaintext复制
 bash复制
 
 ```bash
-git clone [项目地址]
+git clone https://github.com/staihex/apphub.git
 ```
 
 ### 安装依赖
