@@ -48,3 +48,29 @@ export default tseslint.config({
   },
 })
 ```
+
+卷 娱乐 的文件夹 PATH 列表
+卷序列号为 D0B9-62F1
+F:.
+├─assets
+├─components
+│  ├─Chat
+│  ├─Header
+│  ├─Loading
+│  ├─Other
+│  └─Voice
+├─config
+├─constants
+├─contexts
+├─Home
+├─ImageAnalysis
+├─ImageGen
+├─services
+├─SpeechToText
+├─TextGen
+├─TextToSpeech
+├─types
+├─utils
+├─VoiceChat
+└─VoiceClone
+

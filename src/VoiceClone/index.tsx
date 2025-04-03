@@ -4,7 +4,6 @@ import HeaderMenu from '../components/Header/HeaderMenu';
 import { Affix, Col, Form, Layout, Row, Select, Typography, Input, message, Empty, Flex, List, Button, Skeleton, Divider, Popconfirm } from 'antd';
 import { useXAgent, useXChat } from '@ant-design/x';
 import { useFetch } from '../contexts/useFetch';
-import { API_KEY } from '../config/config';
 import { request } from '../services/request';
 import OpenAIClientManager from '../utils//OpenAIClientManager';
 import Link from 'antd/es/typography/Link';
@@ -45,9 +44,9 @@ const TextToSpeech: React.FC = () => {
   const [, setAudioUrl] = React.useState<string>('');
   const [loading, setLoading] = React.useState(false);
 
-  const [apiKey, setApiKey] = React.useState(API_KEY);
+  const [apiKey, setApiKey] = React.useState('');
 
-  const currentApiKeyrRef = React.useRef(API_KEY);
+  const currentApiKeyrRef = React.useRef('');
   const playAudioRef = React.useRef<any>('');
 
   const [keyStatus, setKeyStatus] = React.useState<number>(0);
@@ -325,7 +324,7 @@ const TextToSpeech: React.FC = () => {
                     />
                   </Form.Item>
                   <Form.Item name='key' label="API_KEY" valuePropName='key'>
-                    <Input defaultValue={API_KEY} onChange={(e) => {
+                    <Input onChange={(e) => {
                       if (e.target.value.length == 35) {
                         currentApiKeyrRef.current = e.target.value
                         setApiKey(e.target.value);

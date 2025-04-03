@@ -1,57 +1,28 @@
 import markdownit from 'markdown-it';
-import { createStyles } from 'antd-style';
-import React, { useEffect, useRef } from 'react';
-import HeaderMenu from '../components/Header/HeaderMenu';
-import { Bubble, Sender, useXAgent, useXChat } from '@ant-design/x';
-import { Affix, Avatar, Button, Col, Flex, Form, GetProp, Input, Layout, message, Row, Select, Space, Typography } from 'antd';
-import { CopyOutlined, RedoOutlined, SendOutlined, UserOutlined } from '@ant-design/icons';
 import { useFetch } from '../contexts/useFetch';
-import { API_KEY } from '../config/config';
+import React, { useEffect, useRef } from 'react';
+import HeaderMenu from '../components/Header/HeaderMenu'
+import { Bubble, Sender, useXAgent, useXChat } from '@ant-design/x';
+import { CopyOutlined, RedoOutlined, SendOutlined, UserOutlined } from '@ant-design/icons';
+import { Affix, Avatar, Button, Col, Flex, Form, GetProp, Input, Layout, message, Row, Select, Space, Typography } from 'antd';
 import application13 from '/public/images/application13.png'
 import OpenAIClientManager from '../utils/OpenAIClientManager';
 import WelcomeCard from '../components/Other/WelcomeCard';
-import Link from 'antd/es/typography/Link';
 import '../styles.css'
 import Loading from '../components/Loading/Loading';
+import { useStyles } from '../components/Chat/styles';
 
-const { Text } = Typography;
-
-// 创建样式
-const useStyle = createStyles(({ token, css }) => {
-  return {
-    chat: css`
-      height: 100%;
-      width: 100%;
-      max-width: 700px;
-      margin: 0 auto;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      padding: 24px 24px 0px 24px;
-      gap: 16px;
-    `,
-    messages: css`
-      flex: 1;
-    `,
-    placeholder: css`
-      padding-top: 32px;
-    `,
-    sender: css`
-      box-shadow: ${token.boxShadow};
-    `,
-  };
-});
+const { Text, Link } = Typography;
 
 // 文本生成组件
 const TextGen: React.FC = React.memo(() => {
   const { data } = useFetch();
-  const { styles } = useStyle();
+  const { styles } = useStyles();
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [messageApi, contextHolder] = message.useMessage();
   const currentModelrRef = React.useRef('llava:7b');
   const md = markdownit({ html: true, breaks: true });
-  const currentApiKeyrRef = React.useRef(API_KEY);
+  const currentApiKeyrRef = React.useRef('');
   const isStart = React.useRef(true);
 
   const [form] = Form.useForm();
@@ -302,7 +273,7 @@ const TextGen: React.FC = React.memo(() => {
                       options={data?.llm}
                     />
                   </Form.Item>
-                  <Form.Item initialValue={API_KEY} label="API_KEY" name='apikey' rules={[{ required: true, message: '请输入API_KEY' }]} style={{ marginBottom:'8px'}}>
+                  <Form.Item label="API_KEY" name='apikey' rules={[{ required: true, message: '请输入API_KEY' }]} style={{ marginBottom: '8px' }}>
                     <Input onChange={(e) => {
                       // 更新API_KEY
                       currentApiKeyrRef.current = e.target.value
@@ -311,7 +282,7 @@ const TextGen: React.FC = React.memo(() => {
                   </Form.Item>
                   <Link href="https://test.staihex.com/api_key" target='_blank' style={{ float: 'right' }}>获取API_KEY</Link>
                 </Form>
-               
+
               </div>
             </Affix>
           </Col>

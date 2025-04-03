@@ -16,13 +16,15 @@ const CustomUpload: React.FC<{
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   playAudioRef: React.RefObject<any>,
   handlePlayPause: () => void;
+  prompt: string,
   playNewAudio: (url: string) => void;
 }> = ({
   onUploadSuccess,
   type,
   playAudioRef,
   handlePlayPause,
-  playNewAudio
+  playNewAudio,
+  prompt,
 }) => {
     const [isRecording, setIsRecording] = useState(false);
     const mediaRecorderRef = useRef<MediaRecorder | null>(null);
@@ -292,7 +294,6 @@ const CustomUpload: React.FC<{
       }
     };
     const dateStr = Date.now().toString();
-    // 收到好友从远方寄来的生日礼物,那份意外的惊喜与深深的祝福让我心中充满了甜蜜的快乐,笑容如花儿般绽放。
     // 处理录音文件上传
     const handleUpload = async (file: File) => {
       const url = 'https://test.staihex.com/for_app_http_v1/api/common/cloudstorage/sign';
@@ -441,7 +442,10 @@ const CustomUpload: React.FC<{
           }
           setIsModalOpen(false)
           setRecordingDuration(0)
-        }} footer={<div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+        }}
+        onCancel={() => setIsModalOpen(false)}  // 必须设置这个才能关闭
+        onOk={() => setIsModalOpen(false)}     // 可选，点击确定按钮关闭 
+        footer={<div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
           <Button style={{ width: '120px' }} type='dashed' onClick={() => {
              if (isRecording) {
               const record = recordRef.current;
@@ -465,7 +469,7 @@ const CustomUpload: React.FC<{
         </div>}>
           <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', textAlign: 'center', marginTop: '32px' }}>
             <p>点击开始录音后,请朗读下列文字…</p>
-            <p style={{ lineHeight: '25px', fontSize: '18px', margin: '24px' }}>我轻声诉说心底的诗篇，愿它能飘向远方的你。</p>
+            <p style={{ lineHeight: '25px', fontSize: '18px', margin: '24px' }}>{prompt}</p>
             <div style={{ marginBottom: '24px' }}>
               <Text style={{ fontSize: '26px', lineHeight: '34px' }}>{formatDuration1(recordingDuration)}</Text>
             </div>
@@ -480,14 +484,9 @@ const CustomUpload: React.FC<{
           type="primary"
           icon={<AudioOutlined />}
           onClick={() => {
-            // e.stopPropagation()
-            // startRecording()
             setIsModalOpen(true);
 
           }}
-        // onMouseUp={stopRecording}
-        // onMouseLeave={stopRecording}
-        // disabled={isRecording}
         >
           录制音频
         </Button>

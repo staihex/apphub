@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Divider, Form, Input, InputRef, message, Modal, Radio, Select, Space } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import CustomUpload from '../Other/CustomUpload';
@@ -36,6 +36,7 @@ const AddVoice: React.FC<AddVoiceProps> = ({ UpdateList, apiKey, handlePlayPause
   const [messageApi, contextHolder] = message.useMessage();
 
   const [type, setType] = useState(1)
+  const [promptText, setPromptText] = useState('我轻声诉说心底的诗篇，愿它能飘向远方的你。');
 
   const onCreate = (values: Values) => {
     console.log('Received values of form: ', values);
@@ -74,6 +75,33 @@ const AddVoice: React.FC<AddVoiceProps> = ({ UpdateList, apiKey, handlePlayPause
         });
       });
   };
+
+  const getPrompt = () => {
+    const url = 'https://test.staihex.com/api/ai/v1/voice/get_prompt_text';
+    const options = {
+      method: 'GET', // 明确指定请求方法
+    };
+
+    request<any>(url, options)
+      .then(async (response) => {
+        const data = await response.json();
+        console.log('Get 请求成功:',data);
+        setPromptText(data.prompt_text);
+        // form.setFieldValue('prompt_text', data['prompt_text ']);
+      })
+      .catch((error) => {
+        console.error('GET 请求失败:', error);
+        messageApi.open({
+          type: 'error',
+          content: '添加失败',
+        });
+      });
+  };
+
+  useEffect(() => {
+    getPrompt();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const onNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
@@ -141,7 +169,8 @@ const AddVoice: React.FC<AddVoiceProps> = ({ UpdateList, apiKey, handlePlayPause
         <Form.Item initialValue={1} name="type" label="">
           <Radio.Group onChange={(e) => {
             if (e.target.value == 2) {
-              form.setFieldValue('prompt_text', '我轻声诉说心底的诗篇，愿它能飘向远方的你。');
+              console.log("prompt_text", promptText)
+              form.setFieldValue('prompt_text', promptText);
             } else {
               form.setFieldValue('prompt_text', '');
             }
@@ -155,7 +184,7 @@ const AddVoice: React.FC<AddVoiceProps> = ({ UpdateList, apiKey, handlePlayPause
           <Input.TextArea maxLength={200} showCount disabled={type == 2} />
         </Form.Item>
         <Form.Item name='prompt_text' label="音频文件" rules={[{ required: true, message: '请上传或录制音频文件' }]}>
-          <CustomUpload playAudioRef={playAudioRef} handlePlayPause={handlePlayPause} playNewAudio={playNewAudio} type={type} onUploadSuccess={(value: React.SetStateAction<string>) => {
+          <CustomUpload prompt={promptText} playAudioRef={playAudioRef} handlePlayPause={handlePlayPause} playNewAudio={playNewAudio} type={type} onUploadSuccess={(value: React.SetStateAction<string>) => {
             setVoiceUrl(value);
           }} />
         </Form.Item>

@@ -1,5 +1,5 @@
 import OpenAI from "openai";
-import { API_BASE_URL } from "../config/config";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 
 // 定义OpenAIClientManager类
