@@ -6,7 +6,6 @@
 
 ## 目录结构
 
-plaintext复制
 
 ```plaintext
 ├─components
@@ -81,7 +80,6 @@ plaintext复制
 
 使用 Git 克隆项目到本地：
 
-bash复制
 
 ```bash
 git clone https://github.com/staihex/apphub.git
@@ -93,7 +91,6 @@ git clone https://github.com/staihex/apphub.git
 
 #### 使用 npm
 
-bash复制
 
 ```bash
 npm install
@@ -101,7 +98,6 @@ npm install
 
 #### 使用 yarn
 
-bash复制
 
 ```bash
 yarn install
@@ -132,7 +128,6 @@ VITE_API_ENDPOINT=https://api.production.example.com
 
 在安装完依赖后，你可以使用以下命令启动开发服务器：
 
-bash复制
 
 ```bash
 npm run dev
@@ -146,7 +141,6 @@ npm run dev
 
 如果你需要将项目打包成生产环境可用的文件，可以使用以下命令：
 
-bash复制
 
 ```bash
 npm run build
