@@ -1,6 +1,6 @@
 # 星算多模态应用示例
 
-[English](README.en-US.md) | [中文](README.md)
+[English](README.en-US.md)
 
 为了助力开发者快速集成星算的 API 服务，星算团队精心打造了一系列开源示例 AI 应用。这些示例应用基于 Vite 创建，采用 TypeScript 和 React 技术栈开发，旨在为开发者提供直观、高效的参考，帮助开发者快速理解和实现星算 API 接口的调用。
 
