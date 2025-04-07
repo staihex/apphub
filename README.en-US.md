@@ -8,7 +8,6 @@ To help developers quickly integrate StarCompute's API services, the StarCompute
 
 ## Directory Structure
 
-plaintext复制
 
 ```plaintext
 ├─components
@@ -83,7 +82,6 @@ Enables voice dialogue interaction between users and the system. Users can ask q
 
 Clone the project to your local machine using Git:
 
-bash复制
 
 ```bash
 git clone https://github.com/staihex/apphub.git
@@ -95,7 +93,6 @@ You can install project dependencies using the following two methods:
 
 #### Using npm
 
-bash复制
 
 ```bash
 npm install
@@ -103,7 +100,6 @@ npm install
 
 #### Using yarn
 
-bash复制
 
 ```bash
 yarn install
@@ -117,7 +113,6 @@ Ensure the security of sensitive information in these files (such as API keys), 
 
 ### Example Configuration
 
-plaintext复制
 
 ```plaintext
 # .env.development
@@ -135,7 +130,6 @@ VITE_API_ENDPOINT=https://api.production.example.com
 
 After installing the dependencies, you can start the development server using the following command:
 
-bash复制
 
 ```bash
 npm run dev
@@ -147,7 +141,6 @@ After starting, you can visit `http://localhost:5173/apphub/` in your browser to
 
 If you need to package the project into files usable in a production environment, you can use the following command:
 
-bash复制
 
 ```bash
 npm run build
