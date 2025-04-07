@@ -10,24 +10,24 @@ plaintext复制
 
 ```plaintext
 ├─components
-│  ├─Chat          		# 聊天组件
-│  ├─Header       	  # 菜单头
-│  ├─Loading       	  # Loading组件
+│  ├─Chat             # 聊天组件
+│  ├─Header           # 菜单头
+│  ├─Loading          # Loading组件
 │  ├─Other            # 其他组件
-│  └─Voice         		# 声音相关组件
-├─constants        		# 常量定义
-├─contexts         		# 上下文管理
-├─Home            		# 主页
+│  └─Voice            # 声音相关组件
+├─constants           # 常量定义
+├─contexts            # 上下文管理
+├─Home                # 主页
 ├─ImageAnalysis       # 图像理解
-├─ImageGen         	  # 图像生成
-├─services         		# 服务相关
+├─ImageGen            # 图像生成
+├─services            # 服务相关
 ├─SpeechToText        # 语音识别
-├─TextGen          	  # 文本生成
+├─TextGen             # 文本生成
 ├─TextToSpeech        # 语音合成
 ├─types               # 类型定义
-├─utils				        # 工具函数
-├─VoiceChat			      # 语音交互
-└─VoiceClone			    # 音色复刻
+├─utils               # 工具函数
+├─VoiceChat           # 语音交互
+└─VoiceClone          # 音色复刻
 ```
 
 ## 项目架构
