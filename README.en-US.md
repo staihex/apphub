@@ -12,24 +12,24 @@ plaintext复制
 
 ```plaintext
 ├─components
-│  ├─Chat          		# Chat component
-│  ├─Header       	    # Header component
-│  ├─Loading       	    # Loading component
-│  ├─Other              # Other components
-│  └─Voice         		# Voice-related components
-├─constants        		# Constant definitions
-├─contexts         		# Context management
-├─Home            		# Home page
-├─ImageAnalysis         # Image analysis
-├─ImageGen         	    # Image generation
-├─services         		# Service-related
-├─SpeechToText          # Speech-to-text
-├─TextGen          	    # Text generation
-├─TextToSpeech          # Text-to-speech
-├─types                 # Type definitions
-├─utils				    # Utility functions
-├─VoiceChat			    # Voice chat
-└─VoiceClone			# Voice cloning
+│  ├─Chat              # Chat component
+│  ├─Header            # Header component
+│  ├─Loading           # Loading component
+│  ├─Other             # Other components
+│  └─Voice             # Voice-related components
+├─constants            # Constant definitions
+├─contexts             # Context management
+├─Home                 # Home page
+├─ImageAnalysis        # Image analysis
+├─ImageGen             # Image generation
+├─services             # Service-related
+├─SpeechToText         # Speech-to-text
+├─TextGen              # Text generation
+├─TextToSpeech         # Text-to-speech
+├─types                # Type definitions
+├─utils                # Utility functions
+├─VoiceChat            # Voice chat
+└─VoiceClone           # Voice cloning
 ```
 
 ## Project Architecture
