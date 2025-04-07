@@ -1,6 +1,6 @@
 # StarCompute Multimodal Application Examples
 
-[English](README.en-US.md) | [中文](README.md)
+[English](README.en-US.md)
 
 To help developers quickly integrate StarCompute's API services, the StarCompute team has carefully crafted a series of open-source AI application examples. These examples are built on Vite, using the TypeScript and React technology stack, aiming to provide developers with an intuitive and efficient reference to quickly understand and implement the calls to StarCompute API interfaces.
 
